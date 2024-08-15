@@ -6,29 +6,27 @@ using System.Threading.Tasks;
 
 namespace Comisaria.Models
 {
-    internal class Policia
+    internal class Persona
     {
         public int Dni
         {
             get; private set;
         }
-        public string Nombre
-        {
+
+        public string Nombre 
+        { 
             get; private set;
         }
-        public int NumeroPlaca
+
+        public Persona(int dni, string nombre) 
         {
-            get; private set;
-        }
-        public Policia(int dni, string nombre, int numeroPlaca) 
-        {
-            NumeroPlaca = numeroPlaca;
             Dni = dni;
             Nombre = nombre;
         }
+
         public string VerDatos()
         {
-            string datos = $"Dni: {Dni} Nombre: {Nombre} Numero Placa: {NumeroPlaca}";
+            string datos = $"Dni: {Dni} Nombre: {Nombre}";
             return datos;
         }
     }
