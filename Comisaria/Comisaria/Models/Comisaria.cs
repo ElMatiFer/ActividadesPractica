@@ -17,7 +17,7 @@ namespace Comisaria.Models
         {
             if (agentes.Count < 2)
             {
-                agentes.Add(agentes);
+                agentes.Add(policia);
                 return true;
             }
             return false;
