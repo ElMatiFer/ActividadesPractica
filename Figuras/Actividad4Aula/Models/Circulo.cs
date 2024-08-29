@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Actividad4Aula.Models
 {
-    internal class Circulo : IFigura
+    internal class Circulo : IFigura, IComparable
     {
         public double Radio { get; private set; }
 
@@ -25,6 +25,20 @@ namespace Actividad4Aula.Models
         public override string ToString()
         {
             return $"Circulo: {CalcularArea()}";
+        }
+        public int CompareTo(object obj) 
+        {
+            int result = 0;
+         
+            if (obj != null && obj is IFigura)
+            {
+                IFigura obj1 = (IFigura)obj;
+                double area = CalcularArea();
+                result = area.CompareTo(obj1.CalcularArea());
+            }
+            return result;
+
+            
         }
     }
 }

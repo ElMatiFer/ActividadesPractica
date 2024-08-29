@@ -21,21 +21,19 @@ namespace Actividad4Aula
         ArrayList figuras = new ArrayList();
         private void btPrueba_Click(object sender, EventArgs e)
         {
+            
             IFigura cuadrado = new Cuadrado(3.5);
             IFigura rectangulo = new Rectangulo(3,4);
             IFigura circulo = new Circulo(2);
             figuras.Add(cuadrado);
             figuras.Add(rectangulo);
             figuras.Add(circulo);
-
+            figuras.Sort();
+            
             foreach (IFigura a in figuras)
-            {
+            {     
                 lbPrueba.Items.Add(a.ToString());
             }
-
-
-           
-
         }
     }
 }

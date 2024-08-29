@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Actividad4Aula.Models
 {
-    internal class Rectangulo : IFigura
+    internal class Rectangulo : IFigura, IComparable
     {
         public double Lado1 { get; protected set; }
         public double Lado2 { get; protected set; }
@@ -26,6 +26,20 @@ namespace Actividad4Aula.Models
         public override string ToString()
         {
             return $"Rectangulo: {CalcularArea()}"; 
+        }
+        public int CompareTo(object obj)
+        {
+            int result = 0;
+
+            if (obj != null && obj is IFigura)
+            {
+                IFigura obj1 = (IFigura)obj;
+                double area = CalcularArea();   
+                result = area.CompareTo(obj1.CalcularArea());
+            }
+            return result;
+
+
         }
     }
 }
